@@ -52,7 +52,7 @@ public class Robot extends IterativeRobot {
 	 * used for any initialization code.
 	 */
 	ADXRS450_Gyro gyro;
-	public final double kp = 0.03;
+	public final double kp = 0.3;
 	public boolean extended = false;
 
 	public void robotInit() {
@@ -128,36 +128,33 @@ public class Robot extends IterativeRobot {
 		// double lencoder = leftencoder.getValue();
 		// double rencoder = rightencoder.getValue();
 
-		if (currenttime > 1 && currenttime < 2) {
-			
-			gyro.getAngle();
-			//drivebase.arcadeDrive(-.0, (0 - angle) * kp);
-			Timer.delay(0.01);
-		}
 
-		if (currenttime > 2.5 && currenttime < 4) {
-			//was at 4.6
-			drivebase.arcadeDrive(-.7, ( 6 - angle) * kp);
+		
+
+		if (currenttime > 0.5 && currenttime < 3.2) {
+			//was at 4.7
+			drivebase.arcadeDrive(-.7, (   - angle) * kp);
 			Timer.delay(0.01); }
 		
+		if (currenttime > 3.4 && currenttime < 3.54) {
+			//was at 4.7
+			drivebase.arcadeDrive(1, (   - angle) * kp);
+			Timer.delay(0.01); }
 
-			if (currenttime > 5 && currenttime < 6.6) {
-			drivebase.arcadeDrive(.8, (-7 - angle) * kp);
-		}			
-		
-
-
-		if (currenttime > 7) {
+      /*
+		if (currenttime > 4) {
 			extended = true;
 			pusher.extend();
 		}
 		
-		if (currenttime > 8.5 && currenttime < 9.5) {
+		if (currenttime > 4.5 && currenttime < 5.5) {
 			
 			drivebase.arcadeDrive(.7, -angle * kp);
 
 			Timer.delay(0.01);
 		}
+//comment out if doing straight baseline
+		       */
  
 		Scheduler.getInstance().run();
       }
@@ -175,7 +172,9 @@ public class Robot extends IterativeRobot {
 	 * This function is called periodically during operator control
 	 */
 	public void teleopPeriodic() {
+		System.out.println(gyro.getAngle()); 
 		Scheduler.getInstance().run();
+		
 	}
 
 	/**
