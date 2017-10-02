@@ -42,7 +42,7 @@ public class ArcadeDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivebase.arcadeDrive((Robot.oi.xboxcontroller.getRawAxis(2) -Robot.oi.xboxcontroller.getRawAxis(3) ), Robot.oi.xboxcontroller.getRawAxis(4) + (Robot.oi.opstick.getX() / 1.7) + Robot.oi.xboxcontroller.getRawAxis(0)) ;
+    	Robot.drivebase.arcadeDrive((Robot.oi.xboxcontroller.getRawAxis(2) -Robot.oi.xboxcontroller.getRawAxis(3) ), (Robot.oi.xboxcontroller.getRawAxis(4) / 1.5) + (Robot.oi.opstick.getX() / 1.7) + Robot.oi.xboxcontroller.getRawAxis(0)) ;
     	//Robot.drivebase.arcadeDrive((Robot.oi.xboxcontroller.getRawAxis(2) -Robot.oi.xboxcontroller.getRawAxis(3) ) / 65408, (Robot.oi.xboxcontroller.getRawAxis(4) +128 + Robot.oi.opstick.getX()) / 65408);
     	//robotDrive.arcadeDrive(stick.getRawAxis(2) - stick.getRawAxis(3), stick.getRawAxis(4) + oops.getX(), true);
     }
