@@ -49,7 +49,7 @@ public class Climber extends Subsystem {
     }
     
     public void climb() {
-    	superman.set(1);
+    	superman.set(-1);
     }
     
     public void stop() {
